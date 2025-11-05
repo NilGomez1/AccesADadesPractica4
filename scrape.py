@@ -25,7 +25,7 @@ def obtener_datos_libros(url):
         titulo = libro.find('h3').find('a')['title']
 
         precio_str = libro.find('p', class_='price_color').text
-        # Sustituir todo lo que no sea un dígito o un punto por una cadena vacía
+
         precio_limpio = re.sub(r'[^\d.]', '', precio_str)
         precio = float(precio_limpio)
 
@@ -56,4 +56,5 @@ if datos_extraidos:
     print("\nPrimeras filas del DataFrame:")
     print(df_libros.head())
 else:
+
     print("\nNo se extrajeron datos. Revisa la URL o los selectores HTML.")
